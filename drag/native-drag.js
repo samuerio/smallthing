@@ -132,7 +132,8 @@ function validateOverLay(ele1,ele2){
  * @returns {*}
  */
 function getStyle(elem, attr){
-    return Number.parseFloat(elem.currentStyle ? elem.currentStyle[attr] : getComputedStyle(elem, null)[attr])
+    //适配IE和主流浏览器
+    return Number.parseFloat(elem.currentStyle ? elem.currentStyle[attr] : document.defaultView.getComputedStyle(elem, null)[attr])
 }
 
 /**
